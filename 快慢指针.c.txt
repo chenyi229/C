@@ -1,0 +1,23 @@
+#include<iostream>
+struct listNode
+{
+	int data;
+	listNode *next;
+};
+bool isloop(listNode* head)
+{
+	listNode* n1=head;
+	listNode* n2=head;
+	while (n2->next!=NULL)
+	{
+		if (n1->next==n2->next->next)
+		{
+			return true;
+		}
+	}
+	if (n2->next==NULL)
+	{
+		return false
+	}
+
+}

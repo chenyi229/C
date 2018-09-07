@@ -1,0 +1,33 @@
+#include<iostream>
+using namespace std;
+struct BinaryNode
+{
+	int m_ivalue;
+	BinaryNode * m_pleft;
+	BinaryNode * m_pright;
+};
+bool isRequal(BinaryNode* node1,BinaryNode* node2)
+{
+	if (node1==NULL && node2==NULL)
+	{
+		return 1;
+	}
+	if (!node1 || !node2)
+	{
+		return 0;
+	}
+	if (node1->m_ivalue==node2->m_ivalue)
+	{
+		return isRequal(node1->m_pleft,node2->m_pleft) &&
+			isRequal(node1->m_pright,node2->m_pright);//左右子树不可以旋转
+		/* 若左右字数可以旋转
+		return isRequal(node1->m_pleft,node2->m_pleft && isRequal(node1->m_pright,node2->m_pright)||
+		       is Requal(node1->m_pleft,node2->m_pright) &&isRequal(node1->m_pright,node2->m_pleft));
+		*/
+
+	}
+	else
+	{
+		return 0;
+	}
+}

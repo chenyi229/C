@@ -1,0 +1,60 @@
+#include<iostream>
+using namespace std;
+struct BinaryTreeNode
+{
+	int m_ivalue;
+	BinaryTreeNode* m_pleft;
+	BinaryTreeNode* m_pright;
+};
+int Tree_height(BinaryTreeNode* proot)
+{
+	int left,right;
+	if (proot==NULL)
+	{
+		return -1;
+	}
+	else
+	{
+		left=Tree_height(proot->m_pleft)+1;
+		right=Tree_height(proot->m_pright)+1;
+		return (left>right)?left:right;
+	}
+}
+//bool Isbalance(BinaryTreeNode* proot)
+//{
+//	if (proot==NULL)
+//	{
+//		return true;
+//	}
+//	int left=Tree_height(proot->m_pleft);
+//	int right=Tree_height(proot->m_pright);
+//	int diff=left-right;
+//	if (diff>1 ||diff<-1)
+//	{
+//		return false;
+//	}
+//	else
+//	{
+//		return true;
+//	}
+//	return Isbalance(proot->m_pleft)&&Isbalance(proot->m_pright);
+//}
+bool Isbalance(BinaryTreeNode* proot,int* pdepth)
+{
+	if (proot==NULL)
+	{
+		*pdepth=0;
+		return true;
+	}
+	int left,right;
+	if (Isbalance(proot->m_pleft,&left) &&Isbalance(proot->m_pright,&right))
+	{
+		int diff=left-right;
+		if (diff<=1||diff>=-1)
+		{
+			*pdepth=1+(left>rright?left:right);
+			return true;
+		}
+	}
+	return false;
+}

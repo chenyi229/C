@@ -1,0 +1,29 @@
+#include<stdio.h>
+int bubblesort(int a[],int maxlen)
+{
+	int i,j,temp;
+	for(i=0;i<maxlen;i++)
+	{
+		for (j = 0; j < maxlen-1-i; j++)
+		{
+			if (a[j]>a[j+1])
+			{
+				temp=a[j];
+				a[j]=a[j+1];
+				a[j+1]=temp;
+			}
+		}
+	}
+	return 0;
+}
+int main()
+{
+	int i;
+	int a[]={5,4,3,2,1};
+	bubblesort(a,5);
+	for (i = 0; i<5; i++)
+	{
+		printf("%d ",a[i]);
+	}
+	return 0;
+}

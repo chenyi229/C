@@ -1,0 +1,28 @@
+#include<stdio.h>
+int selectsort(int a[],int maxlen)
+{
+	int i,j,temp;
+	for (i = 0; i <maxlen ; i++)
+	{
+		for(j=i+1;j<maxlen;j++)
+			if (a[i]>a[j])
+			{
+				temp=a[i];
+				a[i]=a[j];
+				a[j]=temp;
+
+			}
+	}
+	return 0;
+}
+
+int main()
+{
+	int k;
+	int a[]={2,3,1,4,3};
+	selectsort(a,5);
+	for(k=0;k<5;k++)
+	{
+		printf("%d ",a[k]);
+	}
+}

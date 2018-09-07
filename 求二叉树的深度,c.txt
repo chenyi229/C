@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+struct SBinaryTreeNode
+{
+	int ivalue;
+	SBinaryTreeNode *m_left;
+	SBinaryTreeNode *m_right;
+};
+int TreeHeight(SBinaryTreeNode *node)
+{
+	int left,right;
+	if (node==NULL)
+	{
+		return -1;
+	}
+	else
+	{
+		left=TreeHeight(node->m_left)+1;
+		right=TreeHeight(node->m_right)+1;
+		if (left>right)
+		{
+			return left;
+		}
+		else
+		{
+			return right;
+		}
+	}
+	return 0;
+}
